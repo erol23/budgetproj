@@ -1,13 +1,14 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = ({setUser}) => {
   const navigate = useNavigate()
 
   console.log(window.location.pathname)
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    setUser(true)
     navigate("/user")
   }
   return (
