@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 const Login = () => {
   const navigate = useNavigate()
 
+  console.log(window.location.pathname)
+
   const handleSubmit = (e) => {
     e.preventDefault()
     navigate("/user")
