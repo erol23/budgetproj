@@ -9,9 +9,14 @@ import PrivateRouter from './PrivateRouter'
 
 const AppRouter = () => {
   const [user, setUser] = useState(false)
+  const [nav, setNav] = useState(false)
+
+  const handleClick = () => {
+    setNav(!nav)
+  }
   return (
     <>
-    <Navbar user={user}/>
+    <Navbar user={user} nav={nav} handleClick={handleClick}/>
         <Routes>
             <Route path='/' element={<Home/>} />
             <Route path='/login' element={<Login setUser={setUser}/>} />

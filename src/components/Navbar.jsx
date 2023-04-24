@@ -1,13 +1,12 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 
-const Navbar = ({ user }) => {
+const Navbar = ({ user , handleClick}) => {
   if (user) {
     return (
       <div className="flex items-center justify-between p-2 w-full border-b-2 border-violet-600 absolute">
-        <div>
-          <button>
+        <div className="flex items-center">
+          <button onClick={handleClick}>
             <FaBars />
           </button>
           <Link to="/">BudgetProj.</Link>
