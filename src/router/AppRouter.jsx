@@ -7,6 +7,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import PrivateRouter from "./PrivateRouter";
 import VerNav from "../components/VerNav";
+import AddNewEntry from "../pages/AddNewEntry";
 
 const AppRouter = () => {
   const [user, setUser] = useState(false);
@@ -17,14 +18,15 @@ const AppRouter = () => {
   };
   return (
     <>
-      <VerNav nav={nav} handleClick={handleClick}/>
+      <VerNav nav={nav} handleClick={handleClick} />
       <Navbar user={user} nav={nav} handleClick={handleClick} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/register" element={<Register setUser={setUser} />} />
-        <Route path="/user" element={<PrivateRouter user={user} />}>
-          <Route path="" element={<User />} />
+        <Route element={<PrivateRouter user={user} />}>
+          <Route path="/user" element={<User />} />
+          <Route path="/newentry" element={<AddNewEntry />} />
         </Route>
       </Routes>
     </>
