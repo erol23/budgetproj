@@ -8,6 +8,7 @@ import Register from "../pages/Register";
 import PrivateRouter from "./PrivateRouter";
 import VerNav from "../components/VerNav";
 import AddNewEntry from "../pages/AddNewEntry";
+import Table from "../pages/Table";
 
 const AppRouter = () => {
   const [user, setUser] = useState(false);
@@ -26,6 +27,7 @@ const AppRouter = () => {
         <Route path="/register" element={<Register setUser={setUser} />} />
         <Route element={<PrivateRouter user={user} />}>
           <Route path="/user" element={<User />} />
+          <Route path="/table" element={<Table />} />
           <Route path="/newentry" element={<AddNewEntry />} />
         </Route>
       </Routes>

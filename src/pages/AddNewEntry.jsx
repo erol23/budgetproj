@@ -1,9 +1,12 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const AddNewEntry = () => {
+  const navigate = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    navigate("/table")
   }
 
   return (
