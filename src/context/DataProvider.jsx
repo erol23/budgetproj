@@ -7,7 +7,13 @@ export const DataContext = createContext()
 
 const DataProvider = ({children}) => {
     const [data, setData] = useState(budgetData)
-    const values = {data, setData}
+
+    const addNewEntry = (newEntry) => {
+        setData([newEntry, ...data])
+    }
+
+    const values = {data, setData, addNewEntry}
+    console.log(data)
 
     return(
         <DataContext.Provider value={values}>

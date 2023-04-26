@@ -1,6 +1,8 @@
-import { budgetData } from "../helper/budgetData"
+import { useDataContext } from "../context/DataProvider"
 
 const Table = () => {
+  const {data} = useDataContext()
+
   return (
     <div>
          <div className="flex items-center h-screen w-full justify-center">
@@ -14,7 +16,7 @@ const Table = () => {
             <th>Currency</th>
           </tr>
           {
-            budgetData.map((budget) => {
+            data.map((budget) => {
               return(
                 <tr>
                   <th>{budget.date}</th>
