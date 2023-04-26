@@ -4,13 +4,15 @@ import { useNavigate } from "react-router-dom";
 
 const AddNewEntry = () => {
   const [date, setDate] = useState("")
-  const [transactiontype, setTransactiontype] = useState("")
+  const [transactiontype, setTransactiontype] = useState("Inflow")
   const [account, setAccount] = useState("")
   const [amount, setAmount] = useState()
   const [description, setDescription] = useState("")
   const [currency, setCurrency] = useState("")
   const navigate = useNavigate();
-  const { addNewEntry } = useDataContext();
+  const { addNewEntry, bankData } = useDataContext();
+
+  console.log(bankData)
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -42,19 +44,22 @@ const AddNewEntry = () => {
           onChange={(e) => setTransactiontype(e.target.value)}
         >
           <option value="inflow">InFlow</option>
-          <option value="outflow">OutFlow</option>
+          <option value="outflow">OutFlow</option>          
         </select>
-        <input
-          list="account"
-          placeholder="Choose Account"
+        <select
+          name="account"
+          id="account"
           className="border border-violet-500 bg-gray-50 w-[250px] rounded-md"
           onChange={(e) => setAccount(e.target.value)}
-        />
-        <datalist id="account">
-          <option value="Garanti" />
-          <option value="İşbankası" />
-          <option value="Akbank" />
-        </datalist>
+        >
+          {
+            bankData.map((bank) => {
+              return(
+                <option value={bank.name}>{bank.name}</option>
+              )
+            })
+          }         
+        </select>
         <input
           type="number"
           placeholder="Enter amount"
@@ -62,11 +67,16 @@ const AddNewEntry = () => {
           onChange={(e) => setAmount(e.target.value)}
         />
         <input
-          type="text"
-          placeholder="Enter desc..."
+          list="typeofin/out"
+          placeholder="Enter type of inflow/outflow"
           className="border border-violet-500 bg-gray-50 w-[250px] rounded-md"
           onChange={(e) => setDescription(e.target.value)}
         />
+        <datalist id="typeofin/out">
+          <option value="Garanti" />
+          <option value="İşbankasi" />
+          <option value="Akbank" />
+        </datalist>
         <input
           list="currency"
           placeholder="Choose Currency"
@@ -78,6 +88,12 @@ const AddNewEntry = () => {
           <option value="Dolar" />
           <option value="TL" />
         </datalist>
+        <input
+          type="text"
+          placeholder="Enter desc..."
+          className="border border-violet-500 bg-gray-50 w-[250px] rounded-md"
+          onChange={(e) => setDescription(e.target.value)}
+        />
         <button type="submit" className="bg-violet-500 text-white rounded-md">
           Add Entry
         </button>

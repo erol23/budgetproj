@@ -16,9 +16,9 @@ const Table = () => {
             <th>Currency</th>
           </tr>
           {
-            data.map((budget) => {
+            data.map((budget, index) => {
               return(
-                <tr>
+                <tr key={index}>
                   <th>{budget.date}</th>
                   <th>{budget.transactiontype}</th>
                   <th>{budget.account}</th>
