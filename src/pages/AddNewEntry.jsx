@@ -10,9 +10,9 @@ const AddNewEntry = () => {
   const [description, setDescription] = useState("")
   const [currency, setCurrency] = useState("")
   const navigate = useNavigate();
-  const { addNewEntry, bankData } = useDataContext();
+  const { addNewEntry, bankData, typeFlow } = useDataContext();
 
-  console.log(bankData)
+  // console.log(typeFlow[0])
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -58,7 +58,7 @@ const AddNewEntry = () => {
                 <option value={bank.name}>{bank.name}</option>
               )
             })
-          }         
+          } 
         </select>
         <input
           type="number"
@@ -66,17 +66,31 @@ const AddNewEntry = () => {
           className="border border-violet-500 bg-gray-50 w-[250px] rounded-md"
           onChange={(e) => setAmount(e.target.value)}
         />
-        <input
-          list="typeofin/out"
-          placeholder="Enter type of inflow/outflow"
+        <select
+          name="typeofflow"
+          id="typeofflow"
           className="border border-violet-500 bg-gray-50 w-[250px] rounded-md"
-          onChange={(e) => setDescription(e.target.value)}
-        />
-        <datalist id="typeofin/out">
-          <option value="Garanti" />
-          <option value="İşbankasi" />
-          <option value="Akbank" />
-        </datalist>
+          onChange={(e) => setAccount(e.target.value)}
+        >
+          {
+            typeFlow[0].inflow.map((flow) => {
+              return(
+                <>
+                  <option value={flow.name}>{flow.name}</option>
+                </>
+              )
+            })
+          }
+          {
+            typeFlow[0].outflow.map((flow) => {
+              return(
+                <>
+                  <option value={flow.name}>{flow.name}</option>
+                </>
+              )
+            })
+          }      
+        </select>
         <input
           list="currency"
           placeholder="Choose Currency"
