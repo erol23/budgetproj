@@ -4,24 +4,27 @@ export const budgetData = [
     transactiontype: "Inflow",
     account: "garanti",
     amount: 2000,
-    description: "salary",
+    description: "agust salary",
     currency: "Euro",
+    typeofflow:"salary"
   },
   {
     date: "26.04.2023",
     transactiontype: "Inflow",
     account: "garanti",
     amount: 2000,
-    description: "salary",
+    description: "mar salary",
     currency: "Euro",
+    typeofflow:"salary"
   },
   {
     date: "26.04.2023",
     transactiontype: "Inflow",
     account: "garanti",
     amount: 2000,
-    description: "salary",
+    description: "may salary",
     currency: "Euro",
+    typeofflow:"salary"
   },
 ];
 

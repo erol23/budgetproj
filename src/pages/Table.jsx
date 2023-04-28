@@ -12,8 +12,9 @@ const Table = () => {
             <th>Type</th>
             <th>Account</th>
             <th>Amount</th>
-            <th>Description</th>
+            <th>type of flow</th>
             <th>Currency</th>
+            <th>Description</th>
           </tr>
           {
             data.map((budget, index) => {
@@ -23,8 +24,9 @@ const Table = () => {
                   <th>{budget.transactiontype}</th>
                   <th>{budget.account}</th>
                   <th>{budget.amount}</th>
-                  <th>{budget.description}</th>
+                  <th>{budget.typeofflow}</th>
                   <th>{budget.currency}</th>
+                  <th>{budget.description}</th>
                 </tr>
               )
             })

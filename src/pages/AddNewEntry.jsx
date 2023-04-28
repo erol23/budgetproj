@@ -9,6 +9,7 @@ const AddNewEntry = () => {
   const [amount, setAmount] = useState()
   const [description, setDescription] = useState("")
   const [currency, setCurrency] = useState("")
+  const [typeofflow, setTypeofflow] = useState("")
   const navigate = useNavigate();
   const { addNewEntry, bankData, typeFlow } = useDataContext();
 
@@ -16,7 +17,7 @@ const AddNewEntry = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newElm = {date, transactiontype, account, amount, description, currency}
+    const newElm = {date, transactiontype, account, amount, description, currency, typeofflow}
     addNewEntry(newElm)
     // console.log(newElm)
     setDate("")
@@ -70,7 +71,7 @@ const AddNewEntry = () => {
           name="typeofflow"
           id="typeofflow"
           className="border border-violet-500 bg-gray-50 w-[250px] rounded-md"
-          onChange={(e) => setAccount(e.target.value)}
+          onChange={(e) => setTypeofflow(e.target.value)}
         >
           {
             typeFlow[0].inflow.map((flow) => {
