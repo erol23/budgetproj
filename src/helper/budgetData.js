@@ -1,6 +1,6 @@
-import ING from "../asset/ing-logo.png"
-import Millenium from "../asset/millenium-logo.png"
-import Wise from "../asset/wise-logo.png"
+import ING from "../asset/ing-logo.png";
+import Millenium from "../asset/millenium-logo.png";
+import Wise from "../asset/wise-logo.png";
 
 export const budgetData = [
   {
@@ -10,7 +10,7 @@ export const budgetData = [
     amount: 2000,
     description: "agust salary",
     currency: "Euro",
-    typeofflow:"salary"
+    typeofflow: "salary",
   },
   {
     date: "26.04.2023",
@@ -19,7 +19,7 @@ export const budgetData = [
     amount: 2000,
     description: "mar salary",
     currency: "Euro",
-    typeofflow:"salary"
+    typeofflow: "salary",
   },
   {
     date: "26.04.2023",
@@ -28,7 +28,7 @@ export const budgetData = [
     amount: 2000,
     description: "may salary",
     currency: "Euro",
-    typeofflow:"salary"
+    typeofflow: "salary",
   },
 ];
 
@@ -41,7 +41,7 @@ export const bankAccount = [
   },
   {
     id: 102,
-    name: "Milenium",
+    name: "Millenium",
     type: "money",
     img: Millenium,
   },
@@ -53,31 +53,28 @@ export const bankAccount = [
   },
 ];
 
-export const typeofflow = [
+export const inflow = [
   {
-    inflow: [
-      {
-        id: 201,
-        name: "salary",
-        type: "inflow",
-      },
-      {
-        id: 202,
-        name: "income",
-        type: "inflow",
-      },
-    ],
-    outflow: [
-      {
-        id: 301,
-        name: "rent",
-        type: "outflow",
-      },
-      {
-        id: 302,
-        name: "market",
-        type: "outflow",
-      },
-    ],
+    id: 201,
+    name: "salary",
+    type: "inflow",
+  },
+  {
+    id: 202,
+    name: "income",
+    type: "inflow",
+  },
+];
+
+export const outflow = [
+  {
+    id: 301,
+    name: "rent",
+    type: "outflow",
+  },
+  {
+    id: 302,
+    name: "market",
+    type: "outflow",
   },
 ];

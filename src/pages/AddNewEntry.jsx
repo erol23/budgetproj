@@ -82,14 +82,7 @@ const AddNewEntry = () => {
               className="border border-violet-500 bg-gray-50 w-[250px] rounded-md"
               onChange={(e) => setTypeofflow(e.target.value)}
             >
-              {typeFlow[0].inflow.map((flow) => {
-                return (
-                  <>
-                    <option value={flow.name}>{flow.name}</option>
-                  </>
-                );
-              })}
-              {typeFlow[0].outflow.map((flow) => {
+              {typeFlow.map((flow) => {
                 return (
                   <>
                     <option value={flow.name}>{flow.name}</option>
