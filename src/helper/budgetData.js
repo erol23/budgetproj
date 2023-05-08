@@ -1,3 +1,7 @@
+import ING from "../asset/ing-logo.png"
+import Millenium from "../asset/millenium-logo.png"
+import Wise from "../asset/wise-logo.png"
+
 export const budgetData = [
   {
     date: "26.04.2023",
@@ -33,16 +37,19 @@ export const bankAccount = [
     id: 101,
     name: "ING",
     type: "money",
+    img: ING,
   },
   {
     id: 102,
     name: "Milenium",
     type: "money",
+    img: Millenium,
   },
   {
     id: 103,
     name: "Wise",
     type: "money",
+    img: Wise,
   },
 ];
 
