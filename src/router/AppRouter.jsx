@@ -10,6 +10,7 @@ import VerNav from "../components/VerNav";
 import AddNewEntry from "../pages/AddNewEntry";
 import Table from "../pages/Table";
 import DataProvider from "../context/DataProvider";
+import Bank from "../pages/Bank";
 
 const AppRouter = () => {
   const [user, setUser] = useState(false);
@@ -29,7 +30,9 @@ const AppRouter = () => {
         <Route element={<PrivateRouter user={user} />}>
           <Route path="/user" element={<User />} />
           <Route path="/table" element={<Table />} />
-          <Route path="/newentry" element={<AddNewEntry />} />
+          <Route path="/newentry" element={<AddNewEntry />} >
+            <Route path="bank" element={<Bank/>} />
+          </Route>
         </Route>
       </Routes>
     </DataProvider>

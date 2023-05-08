@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import DropDownList from "../components/DropDownList";
-import Bank from "./Bank";
 
 const User = () => {
   return (
@@ -11,13 +10,12 @@ const User = () => {
           <Link to="/newentry">New Entry</Link>
         </button>
         <button className="bg-violet-500 w-[120px] h-[50px] rounded-md text-white hover:shadow-xl">
-          <Link to="/newentry">Add Bank or Cash Account</Link>
+          <Link to="/newentry/bank">Add Bank or Cash Account</Link>
         </button>
         <button className="bg-violet-500 w-[120px] h-[50px] rounded-md text-white hover:shadow-xl">
           <Link to="/newentry">Add Type of Inflow/Outflow</Link>
         </button>
         <DropDownList />
-        <Bank />
       </div>
     </div>
   );
