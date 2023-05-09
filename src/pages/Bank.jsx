@@ -1,8 +1,11 @@
 import React from "react";
 import { useDataContext } from "../context/DataProvider";
-import {inflow, outflow} from "../helper/budgetData"
+import { inflow, outflow } from "../helper/budgetData";
+import { HiArrowNarrowRight } from "react-icons/hi";
+import { useNavigate } from "react-router-dom";
 
 const Bank = () => {
+  const navigate = useNavigate()
   const {
     bankData,
     account,
@@ -16,13 +19,17 @@ const Bank = () => {
   } = useDataContext();
 
   const handleTran = (e) => {
-    setTransactiontype(e.target.value)
-    if(e.target.value === "inflow"){
-      setTypeFlow(inflow)
-    }else{
-      setTypeFlow(outflow)
+    setTransactiontype(e.target.value);
+    if (e.target.value === "inflow") {
+      setTypeFlow(inflow);
+    } else {
+      setTypeFlow(outflow);
     }
-    console.log(typeofflow)
+    console.log(typeofflow);
+  };
+
+  const handleClick = () => {
+    navigate("/newentry")
   }
 
   // console.log(typeFlow);
@@ -40,8 +47,12 @@ const Bank = () => {
           // onChange={(e) => setTransactiontype(e.target.value)}
           onChange={handleTran}
         >
-          <option id="0" value="inflow">InFlow</option>
-          <option id="1" value="outflow">OutFlow</option>
+          <option id="0" value="inflow">
+            InFlow
+          </option>
+          <option id="1" value="outflow">
+            OutFlow
+          </option>
         </select>
       </div>
       <div className="flex">
@@ -53,7 +64,10 @@ const Bank = () => {
               setAccount(e.target.parentElement.children[1].innerHTML)
             }
           >
-            <div key={bank.id} className="card flex flex-col items-center p-3 hover:cursor-pointer">
+            <div
+              key={bank.id}
+              className="card flex flex-col items-center p-3 hover:cursor-pointer"
+            >
               <img
                 className="w-24 h-24 mb-3 rounded-full shadow-lg"
                 src={bank.img}
@@ -74,12 +88,20 @@ const Bank = () => {
             {typeFlow.map((flow) => {
               return (
                 <>
-                  <option key={flow.id} value={flow.name}>{flow.name}</option>
+                  <option key={flow.id} value={flow.name}>
+                    {flow.name}
+                  </option>
                 </>
               );
             })}
           </select>
         </div>
+      </div>
+      <div>
+        <button onClick={handleClick} className="flex items-center justify-center bg-violet-500 w-[120px] h-[50px] rounded-md text-white hover:shadow-xl">
+          Next Page 
+          <span className="ml-1 hover:ml-3 duration-300"><HiArrowNarrowRight/></span>
+        </button>
       </div>
     </div>
   );
