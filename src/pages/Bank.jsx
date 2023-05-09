@@ -15,13 +15,17 @@ const Bank = () => {
     setTypeofflow,
   } = useDataContext();
 
-  if(transactiontype !== "inflow"){
-    setTypeFlow(outflow)
-  }else{
-    setTypeFlow(inflow)
+  const handleTran = (e) => {
+    setTransactiontype(e.target.value)
+    if(e.target.value === "inflow"){
+      setTypeFlow(inflow)
+    }else{
+      setTypeFlow(outflow)
+    }
+    console.log(typeofflow)
   }
 
-  console.log(typeFlow);
+  // console.log(typeFlow);
   return (
     <div className="h-screen flex items-center justify-center flex-col">
       <div className="flex flex-col w-full pl-3 ">
@@ -32,12 +36,12 @@ const Bank = () => {
       <div>
         <select
           name="type"
-          id="type"
           className="border border-violet-500 bg-gray-50 w-[250px] rounded-md"
-          onChange={(e) => setTransactiontype(e.target.value)}
+          // onChange={(e) => setTransactiontype(e.target.value)}
+          onChange={handleTran}
         >
-          <option value="inflow">InFlow</option>
-          <option value="outflow">OutFlow</option>
+          <option id="0" value="inflow">InFlow</option>
+          <option id="1" value="outflow">OutFlow</option>
         </select>
       </div>
       <div className="flex">
@@ -49,7 +53,7 @@ const Bank = () => {
               setAccount(e.target.parentElement.children[1].innerHTML)
             }
           >
-            <div className="card flex flex-col items-center p-3 hover:cursor-pointer">
+            <div key={bank.id} className="card flex flex-col items-center p-3 hover:cursor-pointer">
               <img
                 className="w-24 h-24 mb-3 rounded-full shadow-lg"
                 src={bank.img}
@@ -64,14 +68,13 @@ const Bank = () => {
         <div className="m-5">
           <select
             name="typeofflow"
-            id="typeofflow"
             className="border border-violet-500 bg-gray-50 w-[250px] rounded-md"
             onChange={(e) => setTypeofflow(e.target.value)}
           >
             {typeFlow.map((flow) => {
               return (
                 <>
-                  <option value={flow.name}>{flow.name}</option>
+                  <option key={flow.id} value={flow.name}>{flow.name}</option>
                 </>
               );
             })}

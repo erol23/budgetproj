@@ -13,7 +13,7 @@ const DataProvider = ({ children }) => {
   const [amount, setAmount] = useState();
   const [description, setDescription] = useState("");
   const [currency, setCurrency] = useState("");
-  const [typeofflow, setTypeofflow] = useState("");
+  const [typeofflow, setTypeofflow] = useState(inflow[0].name);
 
   const addNewEntry = (newEntry) => {
     setData([newEntry, ...data]);
