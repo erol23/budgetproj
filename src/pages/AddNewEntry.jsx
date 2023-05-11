@@ -15,6 +15,7 @@ const AddNewEntry = () => {
     transactiontype,
     setTransactiontype,
     typeofflow,
+    setTypeofflow
   } = useDataContext();
 
   // console.log(typeFlow[0])
@@ -29,11 +30,13 @@ const AddNewEntry = () => {
       description,
       currency,
       typeofflow,
+      setTypeofflow
     };
     addNewEntry(newElm);
     // console.log(newElm)
     setDate("");
-    setTransactiontype("");
+    setTransactiontype("inflow");
+    setTypeofflow("")
     setAccount("");
     setAmount();
     setDescription("");

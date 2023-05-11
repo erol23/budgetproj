@@ -22,8 +22,10 @@ const Bank = () => {
     setTransactiontype(e.target.value);
     if (e.target.value === "inflow") {
       setTypeFlow(inflow);
+      setTypeofflow(inflow[0].name)
     } else {
       setTypeFlow(outflow);
+      setTypeofflow(outflow[0].name)
     }
     console.log(typeofflow);
   };
