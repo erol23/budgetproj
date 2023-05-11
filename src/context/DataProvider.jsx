@@ -8,7 +8,7 @@ const DataProvider = ({ children }) => {
   const [bankData, setBankData] = useState(bankAccount);
   const [typeFlow, setTypeFlow] = useState(inflow);
   const [transactiontype, setTransactiontype] = useState("inflow");
-  const [account, setAccount] = useState("");
+  const [account, setAccount] = useState("Select account");
   const [typeofflow, setTypeofflow] = useState(inflow[0].name);
 
   const addNewEntry = (newEntry) => {

@@ -31,14 +31,19 @@ const Bank = () => {
   };
 
   const handleClick = () => {
-    navigate("/newentry")
+    if(account === "Select account"){
+      console.log("clicked")
+      return alert("choose an account")
+    }else{
+      navigate("/newentry")
+    }
   }
 
   // console.log(typeFlow);
   return (
     <div className="h-screen flex items-center justify-center flex-col">
       <div className="flex flex-col w-full pl-3 ">
-        <h2>Account: {!account ? "Select account" : account}</h2>
+        <h2>Account: {account}</h2>
         <h2>Transaction Type: {transactiontype}</h2>
         <h2>Type of Flow: {typeofflow}</h2>
       </div>
