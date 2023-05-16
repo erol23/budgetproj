@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import DropDownList from "../components/DropDownList";
-import BankModal from "../components/BankModal";
 
 const User = () => {
   return (
@@ -17,7 +16,6 @@ const User = () => {
           <Link to="/newentry">Add Type of Inflow/Outflow</Link>
         </button>
         <DropDownList />
-        <BankModal />
       </div>
     </div>
   );
