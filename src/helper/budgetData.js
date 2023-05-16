@@ -1,6 +1,7 @@
 import ING from "../asset/ing-logo.png";
 import Millenium from "../asset/millenium-logo.png";
 import Wise from "../asset/wise-logo.png";
+import Akbank from "../asset/akbank-logo.png";
 
 export const budgetData = [
   {
@@ -52,6 +53,33 @@ export const bankAccount = [
     img: Wise,
   },
 ];
+
+export const Banks = [
+  {
+    id: 101,
+    name: "ING",
+    type: "money",
+    img: ING,
+  },
+  {
+    id: 102,
+    name: "Millenium",
+    type: "money",
+    img: Millenium,
+  },
+  {
+    id: 103,
+    name: "Wise",
+    type: "money",
+    img: Wise,
+  },
+  {
+    id: 104,
+    name: "Akbank",
+    type: "money",
+    img: Akbank,
+  },
+]
 
 export const inflow = [
   {
