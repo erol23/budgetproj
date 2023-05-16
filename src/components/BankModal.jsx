@@ -6,6 +6,9 @@ const BankModal = ({ setVisible }) => {
     <div className="h-full w-full flex justify-center items-center absolute z-10">
       <div className="bg-black opacity-80 h-full fixed z-[1] w-full transition ease-linear duration-1000 flex justify-center items-center"></div>
       <div className="bg-white h-[500px] w-[700px] flex flex-col justify-between rounded-lg absolute z-10">
+        <div>
+          <p>Bank's choosed: ING</p>
+        </div>
         <div className="mt-5 w-full h-1/2 flex justify-center items-center overflow-auto no-scrollbar">
           <div className="mt-20 flex flex-wrap justify-center items-center">
             {Banks.map((bank) => {

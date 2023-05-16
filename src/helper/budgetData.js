@@ -2,6 +2,8 @@ import ING from "../asset/ing-logo.png";
 import Millenium from "../asset/millenium-logo.png";
 import Wise from "../asset/wise-logo.png";
 import Akbank from "../asset/akbank-logo.png";
+import IsBank from "../asset/ısbank-logo.png";
+import Ziraat from "../asset/ziraat-logo.png";
 
 export const budgetData = [
   {
@@ -36,18 +38,30 @@ export const budgetData = [
 export const bankAccount = [
   {
     id: 101,
-    name: "ING",
+    name: "ING-Euro",
     type: "money",
     img: ING,
   },
   {
     id: 102,
-    name: "Millenium",
+    name: "Millenium-Euro",
     type: "money",
     img: Millenium,
   },
   {
     id: 103,
+    name: "Millenium-Zloti",
+    type: "money",
+    img: Millenium,
+  },
+  {
+    id: 104,
+    name: "Millenium-Dolar",
+    type: "money",
+    img: Millenium,
+  },
+  {
+    id: 105,
     name: "Wise",
     type: "money",
     img: Wise,
@@ -78,6 +92,18 @@ export const Banks = [
     name: "Akbank",
     type: "money",
     img: Akbank,
+  },
+  {
+    id: 105,
+    name: "Ziraat",
+    type: "money",
+    img: Ziraat,
+  },
+  {
+    id: 106,
+    name: "İş Bankası",
+    type: "money",
+    img: IsBank,
   },
 ]
 
