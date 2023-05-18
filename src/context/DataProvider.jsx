@@ -12,6 +12,10 @@ const DataProvider = ({ children }) => {
     setData([newEntry, ...data]);
   };
 
+  const addNewAccount = (newAcc) => {
+    setBankData([newAcc, ...bankData])
+  }
+
   const values = {
     data,
     setData,
@@ -20,6 +24,7 @@ const DataProvider = ({ children }) => {
     account,
     setAccount,
     addNewEntry,
+    addNewAccount,
   };
   return <DataContext.Provider value={values}>{children}</DataContext.Provider>;
 };
