@@ -1,21 +1,21 @@
 import { useState } from "react";
 import { useDataContext } from "../context/DataProvider";
 import { Outlet, useNavigate } from "react-router-dom";
+import { inflow, outflow } from "../helper/budgetData";
 
 const AddNewEntry = () => {
   const [date, setDate] = useState("");
   const [amount, setAmount] = useState();
   const [description, setDescription] = useState("");
   const [currency, setCurrency] = useState("");
+  const [typeFlow, setTypeFlow] = useState(inflow);
+  const [transactiontype, setTransactiontype] = useState()
+  const [typeofflow, setTypeofflow] = useState()
   const navigate = useNavigate();
   const {
     addNewEntry,
     account,
     setAccount,
-    transactiontype,
-    setTransactiontype,
-    typeofflow,
-    setTypeofflow
   } = useDataContext();
 
   // console.log(typeFlow[0])
@@ -30,7 +30,6 @@ const AddNewEntry = () => {
       description,
       currency,
       typeofflow,
-      setTypeofflow
     };
     addNewEntry(newElm);
     // console.log(newElm)
@@ -43,6 +42,18 @@ const AddNewEntry = () => {
     setCurrency("");
 
     navigate("/table");
+  };
+
+  const handleTran = (e) => {
+    setTransactiontype(e.target.value);
+    if (e.target.value === "inflow") {
+      setTypeFlow(inflow);
+      setTypeofflow(inflow[0].name);
+    } else {
+      setTypeFlow(outflow);
+      setTypeofflow(outflow[0].name);
+    }
+    console.log(typeofflow);
   };
 
   // console.log(window.location.pathname);
@@ -63,15 +74,15 @@ const AddNewEntry = () => {
               className="border border-violet-500 bg-gray-50 w-[250px] rounded-md"
               onChange={(e) => setDate(e.target.value)}
             />
-            {/* <select
+            <select
               name="type"
               id="type"
               className="border border-violet-500 bg-gray-50 w-[250px] rounded-md"
-              onChange={(e) => setTransactiontype(e.target.value)}
+              onChange={handleTran}
             >
               <option value="inflow">InFlow</option>
               <option value="outflow">OutFlow</option>
-            </select> */}
+            </select>
             {/* <select
               name="account"
               id="account"
@@ -88,7 +99,7 @@ const AddNewEntry = () => {
               className="border border-violet-500 bg-gray-50 w-[250px] rounded-md"
               onChange={(e) => setAmount(e.target.value)}
             />
-            {/* <select
+            <select
               name="typeofflow"
               id="typeofflow"
               className="border border-violet-500 bg-gray-50 w-[250px] rounded-md"
@@ -101,7 +112,7 @@ const AddNewEntry = () => {
                   </>
                 );
               })}
-            </select> */}
+            </select>
             <input
               list="currency"
               placeholder="Choose Currency"

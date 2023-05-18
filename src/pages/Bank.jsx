@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useDataContext } from "../context/DataProvider";
-import { inflow, outflow } from "../helper/budgetData";
 import { HiArrowNarrowRight } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
 import BankModal from "../components/BankModal";
@@ -12,25 +11,8 @@ const Bank = () => {
     bankData,
     account,
     setAccount,
-    transactiontype,
-    setTransactiontype,
-    typeFlow,
-    setTypeFlow,
-    typeofflow,
-    setTypeofflow,
   } = useDataContext();
 
-  const handleTran = (e) => {
-    setTransactiontype(e.target.value);
-    if (e.target.value === "inflow") {
-      setTypeFlow(inflow);
-      setTypeofflow(inflow[0].name);
-    } else {
-      setTypeFlow(outflow);
-      setTypeofflow(outflow[0].name);
-    }
-    console.log(typeofflow);
-  };
 
   const handleClick = () => {
     if (account === "Select account") {
@@ -48,23 +30,6 @@ const Bank = () => {
       <div className="h-screen flex items-center justify-center flex-col">
         <div className="flex flex-col w-full pl-3 ">
           <h2>Account: {account}</h2>
-          <h2>Transaction Type: {transactiontype}</h2>
-          <h2>Type of Flow: {typeofflow}</h2>
-        </div>
-        <div>
-          <select
-            name="type"
-            className="border border-violet-500 bg-gray-50 w-[250px] rounded-md"
-            // onChange={(e) => setTransactiontype(e.target.value)}
-            onChange={handleTran}
-          >
-            <option id="0" value="inflow">
-              InFlow
-            </option>
-            <option id="1" value="outflow">
-              OutFlow
-            </option>
-          </select>
         </div>
         <div className="flex">
           <button
@@ -96,26 +61,6 @@ const Bank = () => {
               </div>
             </div>
           ))}
-          <div className="m-5">
-            <button className="bg-violet-500 w-[120px] h-[50px] rounded-md text-white hover:shadow-xl">
-              Add Type of Inflow/Outflow
-            </button>
-            <select
-              name="typeofflow"
-              className="border border-violet-500 bg-gray-50 w-[250px] rounded-md"
-              onChange={(e) => setTypeofflow(e.target.value)}
-            >
-              {typeFlow.map((flow) => {
-                return (
-                  <>
-                    <option key={flow.id} value={flow.name}>
-                      {flow.name}
-                    </option>
-                  </>
-                );
-              })}
-            </select>
-          </div>
         </div>
         <div>
           <button
