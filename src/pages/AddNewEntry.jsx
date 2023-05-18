@@ -65,8 +65,6 @@ const AddNewEntry = () => {
         <div className="flex flex-col h-screen justify-center items-center">
           <div className="flex flex-col w-full pl-3 ">
             <h2>Account: {!account ? "Select account" : account}</h2>
-            <h2>Transaction Type: {transactiontype}</h2>
-            <h2>Type of Flow: {typeofflow}</h2>
           </div>
           <form className="flex flex-col gap-2" onSubmit={handleSubmit}>
             <input

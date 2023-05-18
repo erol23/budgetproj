@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-// import { Banks } from "../helper/budgetData";
 
 const BankModal = ({ setVisible, bankData, addNewAccount }) => {
   const [bankName, setBankName] = useState("");

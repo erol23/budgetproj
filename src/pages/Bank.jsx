@@ -58,7 +58,7 @@ const Bank = () => {
                   alt={bank.name}
                 />
                 <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-                  {bank.name}
+                  {bank.displayName ? bank.displayName : `${bank.name}-${bank.currency}`}
                 </h5>
               </div>
             </div>

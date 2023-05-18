@@ -38,33 +38,43 @@ export const budgetData = [
 export const bankAccount = [
   {
     id: 101,
-    name: "ING-Euro",
+    name: "ING",
     type: "money",
     img: ING,
+    currency: "Euro",
+    displayName: "Hollanda ING"
   },
   {
     id: 102,
-    name: "Millenium-Euro",
+    name: "Millenium",
     type: "money",
     img: Millenium,
+    currency: "Zloti",
+    displayName: "Polonya Mil."
   },
   {
     id: 103,
-    name: "Millenium-Zloti",
+    name: "Millenium",
     type: "money",
     img: Millenium,
+    currency: "Euro",
+    displayName: "Pol-Euro-Mil."
   },
   {
     id: 104,
-    name: "Millenium-Dolar",
+    name: "Millenium",
     type: "money",
     img: Millenium,
+    currency: "Dolar",
+    displayName: ""
   },
   {
     id: 105,
     name: "Wise",
     type: "money",
     img: Wise,
+    currency: "TL",
+    displayName: ""
   },
 ];
 
