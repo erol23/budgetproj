@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import DataList from "../components/DataList";
 
 const User = () => {
   return (
@@ -8,6 +9,7 @@ const User = () => {
         <button className="bg-violet-500 w-[120px] h-[50px] rounded-md text-white hover:shadow-xl">
           <Link to="/newentry/bank">New Entry</Link>
         </button>
+        <DataList/>
       </div>
     </div>
   );
