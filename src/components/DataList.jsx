@@ -28,11 +28,12 @@ const DataList = () => {
       <input type="text" value={enterVal} onChange={(e) => setEnterVal(e.target.value)} onClick={() => setVis(true)} />
       {vis ? (
         <div className="absolute z-10">
-          <ul onClick={handleSet}>
-            <li>Hello1</li>
-            <li>Hello2</li>
-            <li>Hello3</li>
-            <li>Hello4</li>
+          <ul onClick={handleSet} className="h-[150px] overflow-auto w-[150px]">
+            {result.map((el) => {
+                return(
+                    <li className="hover:bg-gray-400 cursor-pointer">{el}</li>
+                )
+            })}
           </ul>
           <div>
             <button onClick={() => setVis(false)}>Add</button>
