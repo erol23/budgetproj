@@ -1,8 +1,10 @@
 import { useState } from "react";
+import FlowModal from "./FlowModal";
 
 const DataList = ({typeFlow, setTypeofflow}) => {
   const [vis, setVis] = useState(false);
   const [enterVal, setEnterVal] = useState("");
+  const [visible, setVisible] = useState(false)
 
   let flow = [];
 
@@ -18,6 +20,8 @@ const DataList = ({typeFlow, setTypeofflow}) => {
 
   console.log(flow);
   return (
+    <>
+    {visible ? <FlowModal setVisible={setVisible}/> : null }
     <div>
       <input
         type="text"
@@ -35,11 +39,12 @@ const DataList = ({typeFlow, setTypeofflow}) => {
             })}
           </ul>
           <div className="bg-gray-300">
-            <button onClick={() => setVis(false)}>Add</button>
+            <button onClick={() => setVisible(true)}>Add</button>
           </div>
         </div>
       ) : null}
     </div>
+    </>
   );
 };
 
