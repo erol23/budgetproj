@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDataContext } from "../context/DataProvider";
 import { Outlet, useNavigate } from "react-router-dom";
 import { inflow, outflow } from "../helper/budgetData";
+import DataList from "../components/DataList";
 
 const AddNewEntry = () => {
   const [date, setDate] = useState("");
@@ -53,7 +54,7 @@ const AddNewEntry = () => {
       setTypeFlow(outflow);
       setTypeofflow(outflow[0].name);
     }
-    console.log(typeofflow);
+    // console.log(typeofflow);
   };
 
   // console.log(window.location.pathname);
@@ -97,7 +98,7 @@ const AddNewEntry = () => {
               className="border border-violet-500 bg-gray-50 w-[250px] rounded-md"
               onChange={(e) => setAmount(e.target.value)}
             />
-            <select
+            {/* <select
               name="typeofflow"
               id="typeofflow"
               className="border border-violet-500 bg-gray-50 w-[250px] rounded-md"
@@ -110,7 +111,8 @@ const AddNewEntry = () => {
                   </>
                 );
               })}
-            </select>
+            </select> */}
+            <DataList typeFlow={typeFlow}/>
             <input
               list="currency"
               placeholder="Choose Currency"

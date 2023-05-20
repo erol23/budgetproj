@@ -1,41 +1,39 @@
 import { useState } from "react";
 
-const DataList = () => {
+const DataList = ({typeFlow}) => {
   const [vis, setVis] = useState(false);
-  const [enterVal, setEnterVal] = useState("")
+  const [enterVal, setEnterVal] = useState("");
 
-  const flow = ["Coffee",
-    "Laptop",
-    "Sunflower",
-    "Soccer ball",
-    "Guitar",
-    "Umbrella",
-    "Book",
-    "Sunglasses",
-    "Bicycle",
-    "Pizza"]
+  let flow = [];
 
-  const result = flow.filter((el) => el.includes(enterVal) )
+  typeFlow?.map((item) => flow = [...flow, item.name])
+
+  const result = flow.filter((el) => el.includes(enterVal));
 
   const handleSet = (e) => {
-    setEnterVal(e.target.innerHTML)
-    setVis(false)
-  }
+    setEnterVal(e.target.innerHTML);
+    setVis(false);
+  };
 
-  console.log(result)
+  console.log(flow);
   return (
     <div>
-      <input type="text" value={enterVal} onChange={(e) => setEnterVal(e.target.value)} onClick={() => setVis(true)} />
+      <input
+        type="text"
+        className="border border-violet-500 bg-gray-50 w-[250px] rounded-md"
+        placeholder="Choose Flow Type"
+        value={enterVal}
+        onChange={(e) => setEnterVal(e.target.value)}
+        onClick={() => setVis(true)}
+      />
       {vis ? (
         <div className="absolute z-10">
-          <ul onClick={handleSet} className="h-[150px] overflow-auto w-[150px]">
+          <ul onClick={handleSet} className="max-h-[100px] overflow-auto w-[250px] bg-white">
             {result.map((el) => {
-                return(
-                    <li className="hover:bg-gray-400 cursor-pointer">{el}</li>
-                )
+              return <li className="hover:bg-gray-400 cursor-pointer">{el}</li>;
             })}
           </ul>
-          <div>
+          <div className="bg-gray-300">
             <button onClick={() => setVis(false)}>Add</button>
           </div>
         </div>
