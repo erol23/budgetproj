@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const DataList = ({typeFlow}) => {
+const DataList = ({typeFlow, setTypeofflow}) => {
   const [vis, setVis] = useState(false);
   const [enterVal, setEnterVal] = useState("");
 
@@ -12,6 +12,7 @@ const DataList = ({typeFlow}) => {
 
   const handleSet = (e) => {
     setEnterVal(e.target.innerHTML);
+    setTypeofflow(e.target.innerHTML);
     setVis(false);
   };
 

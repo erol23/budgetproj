@@ -10,7 +10,7 @@ const AddNewEntry = () => {
   const [description, setDescription] = useState("");
   const [currency, setCurrency] = useState("");
   const [typeFlow, setTypeFlow] = useState(inflow);
-  const [transactiontype, setTransactiontype] = useState()
+  const [transactiontype, setTransactiontype] = useState("inflow")
   const [typeofflow, setTypeofflow] = useState()
   const navigate = useNavigate();
   const {
@@ -19,30 +19,33 @@ const AddNewEntry = () => {
     setAccount,
   } = useDataContext();
 
-  // console.log(typeFlow[0])
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newElm = {
-      date,
-      transactiontype,
-      account,
-      amount,
-      description,
-      currency,
-      typeofflow,
-    };
-    addNewEntry(newElm);
-    // console.log(newElm)
-    setDate("");
-    setTransactiontype("inflow");
-    setTypeofflow("")
-    setAccount("");
-    setAmount();
-    setDescription("");
-    setCurrency("");
-
-    navigate("/table");
+    if(typeofflow && currency){
+      const newElm = {
+        date,
+        transactiontype,
+        account,
+        amount,
+        description,
+        currency,
+        typeofflow,
+      };
+      addNewEntry(newElm);
+  
+      setDate("");
+      setTransactiontype("inflow");
+      setTypeofflow("")
+      setAccount("");
+      setAmount();
+      setDescription("");
+      setCurrency("");
+  
+      navigate("/table");
+    }else{
+      return alert("enter a flow type")
+    }
+    
   };
 
   const handleTran = (e) => {
@@ -54,7 +57,6 @@ const AddNewEntry = () => {
       setTypeFlow(outflow);
       setTypeofflow(outflow[0].name);
     }
-    // console.log(typeofflow);
   };
 
   // console.log(window.location.pathname);
@@ -72,6 +74,7 @@ const AddNewEntry = () => {
               type="date"
               className="border border-violet-500 bg-gray-50 w-[250px] rounded-md"
               onChange={(e) => setDate(e.target.value)}
+              required
             />
             <select
               name="type"
@@ -82,44 +85,22 @@ const AddNewEntry = () => {
               <option value="inflow">InFlow</option>
               <option value="outflow">OutFlow</option>
             </select>
-            {/* <select
-              name="account"
-              id="account"
-              className="border border-violet-500 bg-gray-50 w-[250px] rounded-md"
-              onChange={(e) => setAccount(e.target.value)}
-            >
-              {bankData.map((bank) => {
-                return <option value={bank.name}>{bank.name}</option>;
-              })}
-            </select> */}
             <input
               type="number"
               placeholder="Enter amount"
               className="border border-violet-500 bg-gray-50 w-[250px] rounded-md"
               onChange={(e) => setAmount(e.target.value)}
+              required
             />
-            {/* <select
-              name="typeofflow"
-              id="typeofflow"
-              className="border border-violet-500 bg-gray-50 w-[250px] rounded-md"
-              onChange={(e) => setTypeofflow(e.target.value)}
-            >
-              {typeFlow.map((flow) => {
-                return (
-                  <>
-                    <option value={flow.name}>{flow.name}</option>
-                  </>
-                );
-              })}
-            </select> */}
-            <DataList typeFlow={typeFlow}/>
+            <DataList typeFlow={typeFlow} setTypeofflow={setTypeofflow}/>
             <input
               list="currency"
               placeholder="Choose Currency"
               className="border border-violet-500 bg-gray-50 w-[250px] rounded-md"
               onChange={(e) => setCurrency(e.target.value)}
+              required
             />
-            <datalist id="currency">
+            <datalist id="currency" required>
               <option value="Euro" />
               <option value="Dolar" />
               <option value="TL" />
@@ -129,6 +110,7 @@ const AddNewEntry = () => {
               placeholder="Enter desc..."
               className="border border-violet-500 bg-gray-50 w-[250px] rounded-md"
               onChange={(e) => setDescription(e.target.value)}
+              required
             />
             <button
               type="submit"
