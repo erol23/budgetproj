@@ -8,6 +8,8 @@ const DataProvider = ({ children }) => {
   const [data, setData] = useState(budgetData);
   const [bankData, setBankData] = useState(bankAccount);
   const [account, setAccount] = useState("Select account");
+  const [newIn, setNewIn] = useState(inflow)
+  const [newOut, setNewOut] = useState(outflow)
 
   const addNewEntry = (newEntry) => {
     setData([newEntry, ...data]);
@@ -18,7 +20,13 @@ const DataProvider = ({ children }) => {
   }
 
   const addNewFlow = (newFlow) => {
-    console.log(newFlow)
+    if(newFlow.type === "inflow"){
+      setNewIn([...newIn, newFlow])
+      console.log(newIn)
+    }else{
+      setNewOut([...newOut, newFlow])
+      console.log(newOut)
+    }
   }
 
   const values = {
