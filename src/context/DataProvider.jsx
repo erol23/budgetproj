@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import { bankAccount, budgetData } from "../helper/budgetData";
+import {inflow, outflow} from "../helper/budgetData"
 
 export const DataContext = createContext();
 
@@ -16,6 +17,10 @@ const DataProvider = ({ children }) => {
     setBankData([newAcc, ...bankData])
   }
 
+  const addNewFlow = (newFlow) => {
+    console.log(newFlow)
+  }
+
   const values = {
     data,
     setData,
@@ -25,6 +30,7 @@ const DataProvider = ({ children }) => {
     setAccount,
     addNewEntry,
     addNewAccount,
+    addNewFlow
   };
   return <DataContext.Provider value={values}>{children}</DataContext.Provider>;
 };

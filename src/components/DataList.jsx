@@ -1,7 +1,7 @@
 import { useState } from "react";
 import FlowModal from "./FlowModal";
 
-const DataList = ({typeFlow, setTypeofflow}) => {
+const DataList = ({typeFlow, setTypeofflow, addNewFlow}) => {
   const [vis, setVis] = useState(false);
   const [enterVal, setEnterVal] = useState("");
   const [visible, setVisible] = useState(false)
@@ -21,7 +21,7 @@ const DataList = ({typeFlow, setTypeofflow}) => {
   console.log(flow);
   return (
     <>
-    {visible ? <FlowModal setVisible={setVisible}/> : null }
+    {visible ? <FlowModal addNewFlow={addNewFlow} setVisible={setVisible}/> : null }
     <div>
       <input
         type="text"

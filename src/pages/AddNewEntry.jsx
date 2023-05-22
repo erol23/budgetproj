@@ -17,6 +17,7 @@ const AddNewEntry = () => {
     addNewEntry,
     account,
     setAccount,
+    addNewFlow
   } = useDataContext();
 
   const handleSubmit = (e) => {
@@ -92,7 +93,7 @@ const AddNewEntry = () => {
               onChange={(e) => setAmount(e.target.value)}
               required
             />
-            <DataList typeFlow={typeFlow} setTypeofflow={setTypeofflow}/>
+            <DataList typeFlow={typeFlow} setTypeofflow={setTypeofflow} addNewFlow={addNewFlow}/>
             <input
               list="currency"
               placeholder="Choose Currency"
