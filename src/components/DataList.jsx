@@ -1,16 +1,16 @@
 import { useState } from "react";
 import FlowModal from "./FlowModal";
 
-const DataList = ({typeFlow, setTypeofflow, addNewFlow}) => {
+const DataList = ({typeFlow, setTypeofflow, addNewFlow, newIn, newOut, transactiontype}) => {
   const [vis, setVis] = useState(false);
   const [enterVal, setEnterVal] = useState("");
   const [visible, setVisible] = useState(false)
 
-  let flow = [];
+  // let flow = [];
 
-  typeFlow?.map((item) => flow = [...flow, item.name])
+  // typeFlow?.map((item) => flow = [...flow, item.name])
 
-  const result = flow.filter((el) => el.includes(enterVal));
+  // const result = flow.filter((el) => el.includes(enterVal));
 
   const handleSet = (e) => {
     setEnterVal(e.target.innerHTML);
@@ -18,7 +18,7 @@ const DataList = ({typeFlow, setTypeofflow, addNewFlow}) => {
     setVis(false);
   };
 
-  console.log(flow);
+  // console.log(flow);
   return (
     <>
     {visible ? <FlowModal addNewFlow={addNewFlow} setVisible={setVisible} setVis={setVis}/> : null }
@@ -34,9 +34,17 @@ const DataList = ({typeFlow, setTypeofflow, addNewFlow}) => {
       {vis ? (
         <div className="absolute z-10">
           <ul onClick={handleSet} className="max-h-[100px] overflow-auto w-[250px] bg-white">
-            {result.map((el) => {
-              return <li className="hover:bg-gray-400 cursor-pointer">{el}</li>;
-            })}
+            {transactiontype === "inflow" ? 
+              newIn.map((el) => {
+                return <li className="hover:bg-gray-400 cursor-pointer">{el.name}</li>
+              }) :
+              newOut.map((el) => {
+                return <li className="hover:bg-gray-400 cursor-pointer">{el.name}</li>
+              })
+            }
+            {/* {typeFlow.map((el) => {
+              return <li className="hover:bg-gray-400 cursor-pointer">{el.name}</li>;
+            })} */}
           </ul>
           <div className="bg-gray-300">
             <button onClick={() => setVisible(true)}>Add</button>

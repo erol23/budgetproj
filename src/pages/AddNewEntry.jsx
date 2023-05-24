@@ -95,7 +95,7 @@ const AddNewEntry = () => {
               onChange={(e) => setAmount(e.target.value)}
               required
             />
-            <DataList typeFlow={typeFlow} setTypeofflow={setTypeofflow} addNewFlow={addNewFlow}/>
+            <DataList typeFlow={typeFlow} transactiontype={transactiontype} setTypeofflow={setTypeofflow} newIn={newIn} newOut={newOut} addNewFlow={addNewFlow}/>
             <input
               list="currency"
               placeholder="Choose Currency"
