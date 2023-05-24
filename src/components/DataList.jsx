@@ -29,7 +29,7 @@ const DataList = ({typeFlow, setTypeofflow, addNewFlow, newIn, newOut, transacti
         placeholder="Choose Flow Type"
         value={enterVal}
         onChange={(e) => setEnterVal(e.target.value)}
-        onClick={() => setVis(true)}
+        onClick={() => setVis(!vis)}
       />
       {vis ? (
         <div className="absolute z-10">
