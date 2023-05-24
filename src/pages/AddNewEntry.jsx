@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDataContext } from "../context/DataProvider";
 import { Outlet, useNavigate } from "react-router-dom";
-import { inflow, outflow } from "../helper/budgetData";
+import { inflow } from "../helper/budgetData";
 import DataList from "../components/DataList";
 
 const AddNewEntry = () => {
@@ -17,7 +17,9 @@ const AddNewEntry = () => {
     addNewEntry,
     account,
     setAccount,
-    addNewFlow
+    addNewFlow,
+    newIn,
+    newOut
   } = useDataContext();
 
   const handleSubmit = (e) => {
@@ -52,11 +54,11 @@ const AddNewEntry = () => {
   const handleTran = (e) => {
     setTransactiontype(e.target.value);
     if (e.target.value === "inflow") {
-      setTypeFlow(inflow);
-      setTypeofflow(inflow[0].name);
+      setTypeFlow(newIn);
+      setTypeofflow(newIn[0].name);
     } else {
-      setTypeFlow(outflow);
-      setTypeofflow(outflow[0].name);
+      setTypeFlow(newOut);
+      setTypeofflow(newOut[0].name);
     }
   };
 

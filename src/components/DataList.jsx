@@ -21,7 +21,7 @@ const DataList = ({typeFlow, setTypeofflow, addNewFlow}) => {
   console.log(flow);
   return (
     <>
-    {visible ? <FlowModal addNewFlow={addNewFlow} setVisible={setVisible}/> : null }
+    {visible ? <FlowModal addNewFlow={addNewFlow} setVisible={setVisible} setVis={setVis}/> : null }
     <div>
       <input
         type="text"

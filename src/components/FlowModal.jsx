@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 
-const FlowModal = ({setVisible, addNewFlow}) => {
+const FlowModal = ({setVisible, addNewFlow, setVis}) => {
   const [flowName, setFlowName] = useState("")
   const [flowType, setFlowType] = useState("inflow")
 
@@ -15,6 +15,7 @@ const FlowModal = ({setVisible, addNewFlow}) => {
     addNewFlow(newFlow)
     setFlowName("")
     setFlowType("inflow")
+    setVis(false)
     setVisible(false)
   }
 

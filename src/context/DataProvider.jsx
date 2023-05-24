@@ -38,7 +38,9 @@ const DataProvider = ({ children }) => {
     setAccount,
     addNewEntry,
     addNewAccount,
-    addNewFlow
+    addNewFlow,
+    newIn,
+    newOut
   };
   return <DataContext.Provider value={values}>{children}</DataContext.Provider>;
 };
