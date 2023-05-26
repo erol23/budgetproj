@@ -25,7 +25,7 @@ const Bank = () => {
     }
   };
 
-  console.log(bankData);
+  // console.log(bankData);
   return (
     <>
       {visible ? <BankModal setVisible={setVisible} bankData={bankData} addNewAccount={addNewAccount}/> : null}
