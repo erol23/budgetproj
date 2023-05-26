@@ -6,12 +6,13 @@ const DataList = ({typeFlow, setTypeofflow, addNewFlow, newIn, newOut, transacti
   const [enterVal, setEnterVal] = useState("");
   const [visible, setVisible] = useState(false)
 
-  // let flow = [];
+  let flow = [];
 
-  // typeFlow?.map((item) => flow = [...flow, item.name])
+  newIn?.map((item) => flow = [...flow, item.name])
 
-  // const result = flow.filter((el) => el.includes(enterVal));
-
+  const result = flow.filter((el) => el.includes(enterVal));
+  
+  console.log(result)
   const handleSet = (e) => {
     setEnterVal(e.target.innerHTML);
     setTypeofflow(e.target.innerHTML);
@@ -35,8 +36,8 @@ const DataList = ({typeFlow, setTypeofflow, addNewFlow, newIn, newOut, transacti
         <div className="absolute z-10">
           <ul onClick={handleSet} className="max-h-[100px] overflow-auto w-[250px] bg-white">
             {transactiontype === "inflow" ? 
-              newIn.map((el) => {
-                return <li className="hover:bg-gray-400 cursor-pointer">{el.name}</li>
+              result.map((el) => {
+                return <li className="hover:bg-gray-400 cursor-pointer">{el}</li>
               }) :
               newOut.map((el) => {
                 return <li className="hover:bg-gray-400 cursor-pointer">{el.name}</li>
