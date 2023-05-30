@@ -23,7 +23,7 @@ const FlowModal = ({setVisible, addNewFlow, setVis}) => {
     <div className="h-full w-full flex justify-center items-center absolute top-0 left-0 z-20">
       <div className="bg-black opacity-80 h-full fixed z-[1] w-full transition ease-linear duration-1000 flex justify-center items-center"></div>
       <div className="bg-white h-[500px] w-[700px] flex flex-col justify-evenly items-center rounded-lg absolute z-10">
-        <form className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2">
           <input
             type="text"
             placeholder="Enter a new flow"
@@ -35,11 +35,12 @@ const FlowModal = ({setVisible, addNewFlow, setVis}) => {
               id="type"
               className="border border-violet-500 bg-gray-50 w-[250px] rounded-md"
               onChange={(e) => setFlowType(e.target.value)}
+              required
             >
               <option value="inflow">InFlow</option>
               <option value="outflow">OutFlow</option>
             </select>
-        </form>
+        </div>
         <div className="flex w-full justify-evenly items-end mb-3">
           <button type="submit" onClick={handleSave} className="bg-blue-500 w-[120px] h-[50px] rounded-md text-white hover:shadow-xl">
             Save

@@ -24,6 +24,7 @@ const AddNewEntry = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("çalşişti")
     if(typeofflow && currency){
       const newElm = {
         date,
@@ -118,6 +119,7 @@ const AddNewEntry = () => {
             <button
               type="submit"
               className="bg-violet-500 text-white rounded-md"
+              // onClick={handleSubmit}
             >
               Add Entry
             </button>
