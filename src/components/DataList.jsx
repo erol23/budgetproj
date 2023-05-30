@@ -52,7 +52,7 @@ const DataList = ({typeFlow, setTypeofflow, addNewFlow, newIn, newOut, transacti
             })} */}
           </ul>
           <div className="bg-gray-300">
-            <button onClick={() => setVisible(true)}>Add</button>
+            <button className="bg-blue-500 p-1" onClick={() => setVisible(true)}>Add</button>
           </div>
         </div>
       ) : null}
